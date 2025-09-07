@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Results - Exam_Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <nav class="dashboard-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Exam_Web Logo" width="30" height="30">
+                <span>Exam_Web</span>
+            </div>
+            <div class="nav-right">
+                <a href="student_dashboard.html" class="back-link">← Back to Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <main class="dashboard-main">
+            <section class="dashboard-section active">
+                <h1>Exam Results</h1>
+                
+                <!-- Score Summary -->
+                <div class="result-summary">
+                    <div class="score-card">
+                        <h2>Score Summary</h2>
+                        <div class="score-display">
+                            <span class="score-number" id="totalScore">0</span>
+                            <span class="score-total">/ <span id="maxScore">0</span></span>
+                        </div>
+                        <div class="score-percentage" id="percentage">0%</div>
+                        <div class="pass-fail-badge" id="passFail">Pending</div>
+                    </div>
+                    
+                    <div class="exam-details">
+                        <h3>Exam Details</h3>
+                        <div class="detail-item">
+                            <span>Exam:</span>
+                            <span id="examName">Physics Midterm</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Date:</span>
+                            <span id="examDate">August 15, 2025</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Duration:</span>
+                            <span id="duration">45 minutes</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Strikes:</span>
+                            <span id="strikes">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feedback Section -->
+                <div class="feedback-section">
+                    <h3>Feedback</h3>
+                    <div class="feedback-content">
+                        <p id="feedbackText">Your subjective answers will be graded soon.</p>
+                        <p id="teacherMessage" style="display: none;"></p>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    <h3>Performance Analytics</h3>
+                    
+                    <div class="charts-container">
+                        <div class="chart-card">
+                            <h4>Topic Performance</h4>
+                            <canvas id="topicChart" width="400" height="200"></canvas>
+                        </div>
+                        
+                        <div class="chart-card">
+                            <h4>Accuracy Overview</h4>
+                            <canvas id="accuracyChart" width="300" height="300"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h4>Accuracy</h4>
+                            <p id="accuracy">0%</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Attempted</h4>
+                            <p id="attempted">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Correct</h4>
+                            <p id="correct">0</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/result_view.js"></script>
+</body>
+</html>

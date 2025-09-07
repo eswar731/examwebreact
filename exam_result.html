@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Results & Grading - Exam_Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <nav class="dashboard-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Exam_Web Logo" width="30" height="30">
+                <span>Exam_Web</span>
+            </div>
+            <div class="nav-right">
+                <a href="teacher_dashboard.html" class="back-link">← Back to Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <main class="dashboard-main">
+            <h1>Exam Results & Grading</h1>
+            
+            <!-- Navigation Tabs -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" onclick="showTab('leaderboard')">Leaderboard</button>
+                <button class="tab-btn" onclick="showTab('grading')">Manual Grading</button>
+            </div>
+
+            <!-- Leaderboard Section -->
+            <div id="leaderboard" class="tab-content active">
+                <div class="section-header">
+                    <h2>Leaderboard - Physics Midterm</h2>
+                    <div class="actions">
+                        <button class="btn-secondary" onclick="exportToCSV()">Export CSV</button>
+                        <select id="classFilter" onchange="filterByClass()">
+                            <option value="all">All Classes</option>
+                            <option value="Physics 12A">Physics 12A</option>
+                            <option value="Maths 10B">Maths 10B</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th onclick="sortTable(0)">Rank ↕</th>
+                                <th onclick="sortTable(1)">Student ↕</th>
+                                <th onclick="sortTable(2)">Score ↕</th>
+                                <th onclick="sortTable(3)">Accuracy ↕</th>
+                                <th onclick="sortTable(4)">Time ↕</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardBody">
+                            <!-- Leaderboard data will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Grading Section -->
+            <div id="grading" class="tab-content">
+                <div class="section-header">
+                    <h2>Manual Grading</h2>
+                    <div class="filter-options">
+                        <label>
+                            <input type="checkbox" id="showGraded" onchange="filterGraded()">
+                            Show Graded
+                        </label>
+                        <select id="gradingClassFilter" onchange="filterGradingByClass()">
+                            <option value="all">All Classes</option>
+                            <option value="Physics 12A">Physics 12A</option>
+                            <option value="Maths 10B">Maths 10B</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="gradingList" class="grading-list">
+                    <!-- Grading items will be populated here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Grading Modal -->
+    <div id="gradingModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Grade Subjective Answers</h3>
+            <div id="gradingContent">
+                <!-- Grading content will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/exam_result_teacher.js"></script>
+</body>
+</html>

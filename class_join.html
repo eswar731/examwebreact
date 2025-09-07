@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Class - Exam_Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <nav class="dashboard-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Exam_Web Logo" width="30" height="30">
+                <span>Exam_Web</span>
+            </div>
+            <div class="nav-right">
+                <a href="student_dashboard.html" class="back-link">← Back to Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <main class="dashboard-main">
+            <section class="dashboard-section active">
+                <h1>Join a Class</h1>
+                
+                <div class="form-wrapper">
+                    <form id="joinClassForm">
+                        <div class="form-group">
+                            <label for="classCode">Class Code *</label>
+                            <input type="text" id="classCode" name="classCode" required 
+                                   placeholder="Enter 6-digit code (e.g., XZ3P7A)" 
+                                   maxlength="6" style="text-transform: uppercase;">
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Join Class</button>
+                    </form>
+                    
+                    <div id="messageArea" style="display: none;"></div>
+                </div>
+
+                <div class="section-header">
+                    <h2>Your Joined Classes</h2>
+                </div>
+                
+                <div id="joinedClassesContainer" class="cards-grid">
+                    <!-- Joined classes will be populated here -->
+                </div>
+                
+                <div id="emptyState" class="empty-state" style="display: none;">
+                    <p>You haven't joined any classes yet.</p>
+                    <p>Ask your teacher for a class code to get started!</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/class_join.js"></script>
+</body>
+</html>

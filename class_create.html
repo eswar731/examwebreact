@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Class - Exam_Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <nav class="dashboard-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Exam_Web Logo" width="30" height="30">
+                <span>Exam_Web</span>
+            </div>
+            <div class="nav-right">
+                <a href="teacher_dashboard.html" class="back-link">← Back to Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="form-container">
+        <div class="form-wrapper">
+            <h1>Create New Class</h1>
+            <p class="form-subtitle">Set up a new class for your students</p>
+            
+            <form id="createClassForm">
+                <div class="form-group">
+                    <label for="className">Class Name *</label>
+                    <input type="text" id="className" name="className" required 
+                           placeholder="e.g., Physics 12A">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" 
+                           placeholder="e.g., Physics">
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Description (Optional)</label>
+                    <textarea id="description" name="description" rows="3" 
+                              placeholder="Brief description of the class"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox-group">
+                        <input type="checkbox" id="moderation" name="moderation">
+                        Require approval for students joining this class
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label for="classCode">Class Code</label>
+                    <div class="code-container">
+                        <input type="text" id="classCode" name="classCode" readonly>
+                        <button type="button" class="btn-secondary" onclick="regenerateCode()">
+                            Regenerate
+                        </button>
+                    </div>
+                    <small>Share this code with students to join your class</small>
+                </div>
+                
+                <button type="submit" class="btn-primary">Create Class</button>
+            </form>
+            
+            <div id="successMessage" class="success-message" style="display: none;">
+                <h3>Class Created Successfully!</h3>
+                <p>Your class has been created. Share the code <strong id="generatedCode"></strong> with your students.</p>
+                <button class="btn-secondary" onclick="goToDashboard()">Go to Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/class_create.js"></script>
+</body>
+</html>

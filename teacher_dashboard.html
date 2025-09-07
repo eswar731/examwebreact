@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - Exam_Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <nav class="dashboard-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Exam_Web Logo" width="30" height="30">
+                <span>Exam_Web</span>
+            </div>
+            <div class="nav-right">
+                <span class="teacher-name">Welcome, Teacher</span>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="#overview" class="nav-link active" data-section="overview">Overview</a>
+                <a href="#classes" class="nav-link" data-section="classes">My Classes</a>
+                <a href="#exams" class="nav-link" data-section="exams">Exams</a>
+                <a href="#leaderboard" class="nav-link" data-section="leaderboard">Leaderboard</a>
+                <a href="#analytics" class="nav-link" data-section="analytics">Analytics</a>
+            </nav>
+        </aside>
+
+        <main class="dashboard-main">
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section active">
+                <h1>Teacher Dashboard</h1>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Classes</h3>
+                        <p id="totalClasses">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Students</h3>
+                        <p id="totalStudents">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Exams</h3>
+                        <p id="activeExams">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Completed Exams</h3>
+                        <p id="completedExams">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Classes Section -->
+            <section id="classes" class="dashboard-section">
+                <div class="section-header">
+                    <h1>My Classes</h1>
+                    <button class="btn-primary" onclick="createNewClass()">Create New Class</button>
+                </div>
+                <div id="classesContainer" class="cards-grid">
+                    <!-- Classes will be populated here -->
+                </div>
+            </section>
+
+            <!-- Exams Section -->
+            <section id="exams" class="dashboard-section">
+                <h1>Exams by Class</h1>
+                <div id="examsAccordion" class="accordion">
+                    <!-- Exams accordion will be populated here -->
+                </div>
+            </section>
+
+            <!-- Leaderboard Section -->
+            <section id="leaderboard" class="dashboard-section">
+                <h1>Leaderboard Preview</h1>
+                <div id="leaderboardContainer">
+                    <table class="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Student Name</th>
+                                <th>Score</th>
+                                <th>Exam</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardBody">
+                            <!-- Leaderboard data will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics" class="dashboard-section">
+                <h1>Student Activity Insights</h1>
+                <div class="chart-container">
+                    <canvas id="activityChart" width="400" height="200"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/teacher_dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Exam - Exam Platform</title>
+    <link rel="stylesheet" href="css/styles_enhanced.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-title">Create New Exam</h1>
+            <a href="teacher_dashboard.html" class="nav-link">← Back to Dashboard</a>
+        </div>
+    </nav>
+
+    <main class="exam-create-container">
+        <form id="examCreateForm" class="exam-form">
+            <!-- Step 1: Basic Info -->
+            <div class="form-step active" id="step1">
+                <h2>Basic Exam Information</h2>
+                
+                <div class="form-group">
+                    <label for="examName">Exam Name *</label>
+                    <input type="text" id="examName" name="examName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="examDate">Exam Date *</label>
+                    <input type="date" id="examDate" name="examDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="examDuration">Duration (minutes) *</label>
+                    <input type="number" id="examDuration" name="examDuration" min="1" max="180" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="accessCode">Access Code</label>
+                    <input type="text" id="accessCode" name="accessCode" placeholder="Leave empty for no access code">
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="randomizeQuestions"> Randomize question order
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="showResults"> Show results immediately after submission
+                    </label>
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="nextStep()">Next: Add Questions</button>
+            </div>
+
+            <!-- Step 2: Add Questions -->
+            <div class="form-step" id="step2">
+                <h2>Add Questions</h2>
+                
+                <div id="questionsContainer">
+                    <!-- Questions will be dynamically added here -->
+                </div>
+
+                <button type="button" class="btn btn-secondary" onclick="addQuestion()">+ Add Question</button>
+                <button type="button" class="btn btn-primary" onclick="nextStep()">Next: Preview</button>
+            </div>
+
+            <!-- Step 3: Preview & Save -->
+            <div class="form-step" id="step3">
+                <h2>Preview Exam</h2>
+                
+                <div id="examPreview">
+                    <!-- Preview will be generated here -->
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="prevStep()">← Back</button>
+                    <button type="submit" class="btn btn-success">Create Exam</button>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <script src="js/exam_create.js"></script>
+</body>
+</html>
